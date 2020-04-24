@@ -1,0 +1,31 @@
+{% extends 'adminlte/lib/_main_header.html' %}
+{% block logo %}
+    <a href="{% block logo_href %}/{% endblock %}" class="logo"><span class="logo-mini"><b>CP</b></span><span class="logo-lg"><b>Control</b>Panel</span></a>
+{% endblock %}
+
+{% block nav_custom_menu %}
+    <div class="navbar-custom-menu"><ul class="nav navbar-nav">
+            {% block header_dropdowns %}
+                {% if request.user.is_authenticated %}
+                    <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ request.user.image }}"style="height: 30px; object-fit: cover; width: 30px"class="user-image" alt="User Image"><span class="hidden-xs">{% firstof request.user.get_short_name request.user.get_username %}</span></a><ul class="dropdown-menu">
+                            {% block user_header %}
+                                <li class="user-header"><img src="{{ request.user.image }}" style="object-fit: cover" class="img-circle" alt="User Image"><p>
+                                        Email - {{  request.user.email }}
+                                        <small>Member since {{ request.user.date_joined }}</small></p></li>
+                            {% endblock %}
+
+                            {% block menu_footer %}
+                                <li class="user-footer"><div class="pull-left"><a href="
+                                                {% block change_password_url %}{% url 'pushes:update_user' request.user.id %}{% endblock %}"
+                                           class="btn btn-default btn-flat">Settings Users</a></div><div class="pull-right"><a href="{% block logout_url %}{% url 'pushes:logout' %}{% endblock %}"
+                                           class="btn btn-default btn-flat">Sign
+                                            out</a></div></li>
+                            {% endblock %}
+                        </ul></li>
+                {% endif %}
+            {% endblock header_dropdowns %}
+        </ul></div>
+{% endblock nav_custom_menu %}
+
+
+

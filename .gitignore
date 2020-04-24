@@ -1,0 +1,16 @@
+ logs/
+**/node_modules/
+**/.DS_Store
+.idea/
+**/__pycache__
+*.aux
+*.log
+*.pickle
+*.db
+*.rdb
+*.pid
+*.toc
+*.out
+*.pickle
+.ipynb_checkpoints
+env/

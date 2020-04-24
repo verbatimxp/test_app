@@ -1,0 +1,21 @@
+{% extends 'adminlte/base.html' %}
+{% include 'adminlte/lib/_main_header.html' %}
+{% load static %}
+{% block stylesheets %}
+{% include 'adminlte/lib/_styles.html' %}
+<link rel="stylesheet" type="text/css" href=" {% static "css/style.css" %}"><link >
+{% endblock %}
+{% block title %}{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated == False %}
+
+		<h1>Вы не авторизованы</h1><h3><a href="{% url "pushes:login" %}">Войти</a></h3>
+{% endif %}
+{% endblock %}
+
+        {# Site JS #}
+
+{% block javascript %}
+{% include 'adminlte/lib/_scripts.html' %}
+  <script type="application/javascript" src="{% static 'js/js.js' %}"></script>
+{% endblock %}

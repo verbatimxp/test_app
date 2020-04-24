@@ -1,0 +1,20 @@
+{% extends 'adminlte/base.html' %}
+{% include 'adminlte/lib/_main_header.html' %}
+{% load static %}
+{% block stylesheets %}
+{% include 'adminlte/lib/_styles.html' %}
+<link rel="stylesheet" type="text/css" href=" {% static " css/style.css " %}">
+<link>
+{% endblock %} {% block title %}{% endblock %} {% block content %}
+<hr>
+<h3>
+   <a> Вы действительно хотите удалить?</a>
+</h3>
+<form method="POST" action="">
+   {% csrf_token %}
+   <button type="submit" style="width: 7%" class="btn btn-danger">Удалить</button>
+   <a href="{% url 'pushes:options_update' object.id %}">
+   <input type="" style="width: 7%" class="btn btn-warning" value="Отмена">
+   </a>
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+
+{% block user_panel %}
+    {% if request.user.is_authenticated %}
+
+<div class="user-panel">
+	<div class="pull-left image">
+		<img src="{{ request.user.image }}" style="width: 50px; object-fit:cover;height: 50px"
+                     class="img-circle"
+                     alt="User Image">
+		</div>
+		<div class="pull-left info">
+			<p>{{ request.user.last_name }} {{ request.user.first_name }}</p>
+			<p>
+				<i style="color: green" class="fa fa-circle"></i> &nbsp; Online
+			</p>
+		</div>
+	</div>
+    {% endif %}
+
+{% endblock %}
+
+{% block nav_links %}
+    {% if request.user.is_authenticated %}
+
+	<li style="margin-top: 10%">
+		<a href="{% url 'pushes:create_pushes' %}">
+			<i class="fa fa-edit fa-2x" style="color: white"></i>
+			<span class="text-nav-links">Pushes</span>
+		</a>
+	</li>
+	<li style="margin-top: 10%">
+		<a href="{% url 'pushes:options_create' %}">
+			<i class="fa fa-cog fa-2x" style="color: white"></i>
+			<span class="text-nav-links">Options</span>
+		</a>
+	</li>
+    {% endif %}
+{% endblock nav_links %}

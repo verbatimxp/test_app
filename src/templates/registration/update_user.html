@@ -1,0 +1,41 @@
+{% extends 'adminlte/index.html' %}
+
+{% block header_tail %}
+    <script type="text/javascript" charset="utf-8" src="/static/plugins/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/plugins/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <div style="margin-left: 5%"><h3><b>Настройки профиля</b></h3></div>
+        <!-- form start -->
+        <form role="form" method="post">{% csrf_token %}
+            <div class="box-body" style="width: 50%;margin-left: 5%">
+                <div class="form-group">
+                    <label for="title">Фамилия</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="form-group">
+                    <label for="title">Имя</label>
+                    {{ form.first_name}}
+                </div>
+                <div class="form-group">
+                    <label for="title">Url изображение профиля</label>
+                    {{ form.image }}
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Email</label>
+                    {{ form.email }}
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer" style="margin-left: 5%">
+                <button type="submit" style="width: 7%" class="btn btn-primary">Изменить</button>
+            </div>
+        </form>
+
+    </div>
+    <!-- /.box -->
+{% endblock %}
