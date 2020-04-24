@@ -66,16 +66,18 @@ ROOT_URLCONF = 'config.urls'
 #################################################
 # Database Config
 #################################################
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pushes_db',
-        'USER': 'pushes_user',
-        'PASSWORD': 'pushes_test',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
+
 
 #################################################
 # Account and Auth Config
@@ -149,3 +151,7 @@ CELERYBEAT_SCHEDULE = {
         "args": ()
     },
 }
+try:
+    from .settings_local import *
+except ImportError:
+    pass
