@@ -8,8 +8,6 @@ from pushes.forms import CustomUserForm, PushesForm, MyForm, OptionsForm
 from pushes.models import CustomUser, Options, Pushes
 
 # Create your views here.
-from pushes import tasks
-
 
 class HomeView(ListView):
     model = Pushes
