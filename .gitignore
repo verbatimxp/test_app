@@ -14,4 +14,4 @@
 *.pickle
 .ipynb_checkpoints
 env/
-src/config/settings_local.py
+src/config/local.py
