@@ -145,7 +145,7 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERYBEAT_SCHEDULE = {
     "runs-every-30-seconds": {
         "task": "send_pushes",
-        "schedule": crontab(),
+        "schedule": crontab(minute='*/15'),
         "args": ()
     },
 }
